@@ -1,4 +1,4 @@
-from random_recipe import db
+from . import db
 from flask_login import UserMixin
 
 
