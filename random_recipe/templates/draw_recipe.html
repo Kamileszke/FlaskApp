@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block title%}DRAWING A RECIPE{%endblock%}
+
+{%block body%}
+<div align="center">
+    {%if recipes%}
+        {%for recipe in recipes%}
+            {%if recipe.id==id%}
+                <br>
+                    <div class="card text-white bg-primary mb-3" style="max-width: 30rem;">
+                      <div class="card-header"><h3>{{recipe.name}}</h3></div>
+                      <div class="card-body">
+                        <img src="/{{recipe.path}}" class="card-img-top">
+                        <p class="card-text">{{recipe.description}}</p>
+                      </div>
+                    </div>
+            {%endif%}
+        {%endfor%}
+    {%endif%}
+    <br>
+    <form action="{{url_for('draw_recipe')}}" method="POST">
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Draw a recipe</button>
+    </form>
+</div>
+<br>
+{%endblock%}

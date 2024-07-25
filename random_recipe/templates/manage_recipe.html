@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block title%}MANAGING RECIPES{%endblock%}
+{%block body%}
+<br>
+  {%if recipes%}
+    <table class="table table-primary table-striped" >
+          <thead>
+            <tr >
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Manage</th>
+            </tr>
+          </thead>
+        {%for recipe in recipes%}
+          <tbody>
+            <tr>
+              <th scope="row">{{loop.index}}</th>
+              <td>{{recipe.name}}</td>
+              <td>{{recipe.description}}</td>
+              <td>
+                  <a href="delete/{{recipe.id}}">
+                    <button type="button" class="btn btn-light">Delete</button>
+                  </a>
+              </td>
+            </tr>
+          </tbody>
+        {%endfor%}
+    </table>
+  {%endif%}
+{%endblock%}
